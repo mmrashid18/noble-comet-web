@@ -1,30 +1,54 @@
 <!-- Small site-wide CSS overrides injected into <head> so you can tweak name/title sizes without editing theme templates -->
-<style>
-	/* Most Hugo themes render the site or author name inside h1 or a .site-title/.author-hero class.
-		 These selectors aim to cover common cases in Hugo Blox - tweak the sizes below as you like. */
+<!-- If Tailwind/usual theme CSS is loaded after this hook, the inline style can lose priority.
+		 To ensure our override applies, we add a DOM-ready script below that appends a style
+		 element *after* the page's CSS has loaded. This guarantees the override takes precedence. -->
 
-	/* Default size for name / title */
-	header h1,
-	.site-title,
-	.brand,
-	.logo-title,
-	.author-hero h1,
-	.author h1,
-	.author-title,
-	.blox-author__title {
-		font-size: 2.25rem !important; /* 36px approx. — change to your preferred size */
-		line-height: 1.1 !important;
-	}
+<script>
+	(function () {
+		// The CSS rules we want to inject. Adjust the font-size here (2.75rem shown as desired).
+		const css = `
+			/* Target the common header/author name selectors including tailwind utility classes */
+			h1.text-5xl.lg\\:text-6xl,
+			header h1,
+			.site-title,
+			.brand,
+			.logo-title,
+			.author-hero h1,
+			.author h1,
+			.author-title,
+			.blox-author__title {
+				font-size: 2.75rem !important; /* 2.75rem chosen as preferred size */
+				line-height: 1.1 !important;
+			}
+			@media (min-width: 1024px) {
+				h1.text-5xl.lg\\:text-6xl,
+				header h1,
+				.site-title,
+				.author-hero h1,
+				.blox-author__title {
+					font-size: 2.75rem !important;
+				}
+			}
+		`;
 
-	/* Larger screens: bump it up a bit */
-	@media (min-width: 1024px) {
-		header h1,
-		.site-title,
-		.author-hero h1,
-		.blox-author__title {
-			font-size: 2.75rem !important; /* 44px approx. — change as needed */
+		function appendOverride() {
+			try {
+				const s = document.createElement('style');
+				s.setAttribute('data-injected-by', 'head-end-override');
+				s.appendChild(document.createTextNode(css));
+				document.head.appendChild(s);
+			} catch (e) {
+				// Fail silently if the DOM isn't available.
+				console.error('Could not inject override style:', e);
+			}
 		}
-	}
-</style>
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', appendOverride);
+		} else {
+			appendOverride();
+		}
+	})();
+</script>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>

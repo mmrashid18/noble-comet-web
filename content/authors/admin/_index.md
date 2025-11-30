@@ -1,16 +1,16 @@
 ---
 # Display name
-title: Alex Johnson
+title: Bifta Sama Bari
 
 # Name pronunciation (optional)
 name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Alex
-last_name: Johnson
+first_name: Bifta Sama
+last_name: Bari
 
 # Pronouns (optional)
-pronouns: he/him
+pronouns: she/her
 
 # Status emoji
 status:
@@ -23,8 +23,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Senior AI Research Scientist
-
+role: Assistant Professor
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: Meta AI
@@ -54,8 +53,8 @@ interests:
   - AI Ethics
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
+  - area: PhD Electrical Engineering (Security Focus)
+    institution: Tennessee Tech University
     icon: ""
     date_start: 2015-09-01
     date_end: 2019-06-30
@@ -73,8 +72,8 @@ education:
       GPA: 4.0/4.0
 
       Specialized in machine learning and robotics.
-  - area: BS Computer Science
-    institution: MIT
+  - area: BS Electrical Enginnering
+    institution: PUST
     icon: ""
     date_start: 2009-09-01
     date_end: 2013-05-31

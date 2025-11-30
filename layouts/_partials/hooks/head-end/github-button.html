@@ -1,1 +1,30 @@
+<!-- Small site-wide CSS overrides injected into <head> so you can tweak name/title sizes without editing theme templates -->
+<style>
+	/* Most Hugo themes render the site or author name inside h1 or a .site-title/.author-hero class.
+		 These selectors aim to cover common cases in Hugo Blox - tweak the sizes below as you like. */
+
+	/* Default size for name / title */
+	header h1,
+	.site-title,
+	.brand,
+	.logo-title,
+	.author-hero h1,
+	.author h1,
+	.author-title,
+	.blox-author__title {
+		font-size: 2.25rem !important; /* 36px approx. — change to your preferred size */
+		line-height: 1.1 !important;
+	}
+
+	/* Larger screens: bump it up a bit */
+	@media (min-width: 1024px) {
+		header h1,
+		.site-title,
+		.author-hero h1,
+		.blox-author__title {
+			font-size: 2.75rem !important; /* 44px approx. — change as needed */
+		}
+	}
+</style>
+
 <script async defer src="https://buttons.github.io/buttons.js"></script>
